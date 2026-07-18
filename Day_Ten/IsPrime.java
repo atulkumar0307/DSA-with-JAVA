@@ -23,5 +23,6 @@ public class IsPrime {
                 System.out.print("Is Prime");
             }
         }
+        sc.close();
     }
 }
