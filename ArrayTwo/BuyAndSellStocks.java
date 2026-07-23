@@ -2,6 +2,7 @@ package ArrayTwo;
 
 public class BuyAndSellStocks {
 
+    // Time complexity: O(n)
     public static int maxProfit(int prices[]){
         int minBuyPrice = Integer.MAX_VALUE;
         int maxProfit = 0;

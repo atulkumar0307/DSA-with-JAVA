@@ -2,6 +2,7 @@ package ArrayTwo;
 
 public class TrappingRainWater {
 
+    // Time complexity: O(n)
     public static int trappedRainWater(int numbers[]){
         int n = numbers.length;
 
