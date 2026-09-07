@@ -6,16 +6,34 @@ public class Basics {
     // 2. Define work what need to perform;
     // 3. Function inner call;
 
-    public static void printNumber(int i){
-        if(i==1){   // Base Case;
-            System.out.print(1 + " ");
+    // NOTE: Better to also understand how recursion work in memory call stack;
+
+    public static void printNumber(int i){  // Descending order
+        if(i < 1){   // Base Case;
             return;
         }
         System.out.print(i + " ");  // Work
         printNumber(i-1);   //Function Inner call
     }
 
+    public static void printNumberIncOrder(int i){  // Ascending order
+        if(i < 1){  // Base case
+            return; 
+        }
+        printNumberIncOrder(i-1);   // Function Inner call
+        System.out.print(i + " ");  // Work
+    }
+
+    public static int factorial(int i){
+        if(i == 0){
+            return 1;
+        }
+        return i * (factorial(i-1));
+    }
+
     public static void main(String[] args) {
-        printNumber(10);
+        // printNumber(20);
+        // printNumberIncOrder(20);
+        System.out.print(factorial(10));
     }
 }
