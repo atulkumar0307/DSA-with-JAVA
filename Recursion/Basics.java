@@ -8,6 +8,8 @@ public class Basics {
 
     // NOTE: Better to also understand how recursion work in memory call stack;
 
+    //Recursion is not "a function calling itself." Recursion is solving a problem by reducing it to a smaller version of the same problem, until you reach a case whose answer is already known.
+
     public static void printNumber(int i){  // Descending order
         if(i < 1){   // Base Case;
             return;
@@ -31,9 +33,28 @@ public class Basics {
         return i * (factorial(i-1));
     }
 
+    public static int sumOfNumber(int i){
+        if(i == 1){
+            return 1;
+        }
+        return i + sumOfNumber(i-1);
+    }
+
+    public static int fibonacci(int i){
+        if(i == 0){
+            return 0;
+        }
+        if(i == 1){
+            return 1;
+        }
+        return fibonacci(i-1) + fibonacci(i-2);
+    }
+
     public static void main(String[] args) {
         // printNumber(20);
         // printNumberIncOrder(20);
-        System.out.print(factorial(10));
+        // System.out.print(factorial(10));
+        // System.out.println(sumOfNumber(100));
+        // System.out.println(fibonacci(100));
     }
 }
