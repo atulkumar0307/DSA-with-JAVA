@@ -40,14 +40,57 @@ public class Basics {
         return i + sumOfNumber(i-1);
     }
 
+    // Space complexity: O(n)
+    // Time complexity: O(2^n)
     public static int fibonacci(int i){
-        if(i == 0){
-            return 0;
-        }
-        if(i == 1){
-            return 1;
+        if(i == 0 || i == 1){
+            return i;
         }
         return fibonacci(i-1) + fibonacci(i-2);
+    }
+
+    // Space complexity: O(n)
+    // Time complexity: O(n)
+    public static boolean isArraySorted(int arr[], int i){
+        if(i == arr.length-1){
+            return true;
+        }
+        if(arr[i]> arr[i+1]){
+            return false;
+        }
+        return isArraySorted(arr, i+1);
+    }
+
+    // Space complexity: O(n)
+    // Time complexity: O(n)
+    public static int firstOccurance(int arr[], int key, int i){
+        if(i == arr.length){
+            return -1;
+        }
+        if(arr[i] == key){
+            return i;
+        }
+        return firstOccurance(arr, key, i+1);
+    }
+
+    public static int lastOccurance(int arr[], int key, int i){
+        if(i == arr.length){
+            return -1;
+        }
+        int isFound = lastOccurance(arr, key, i+1);
+        if(isFound == -1 && arr[i] == key){
+            return i;
+        }
+        return isFound;
+    }
+    public static int lastOccuranceUnoptimized(int arr[], int key, int i){
+        if(i < 0){
+            return -1;
+        }
+        if(arr[i] == key){
+            return i;
+        }
+        return lastOccurance(arr, key, i-1);
     }
 
     public static void main(String[] args) {
@@ -56,5 +99,10 @@ public class Basics {
         // System.out.print(factorial(10));
         // System.out.println(sumOfNumber(100));
         // System.out.println(fibonacci(100));
+        int randomArray[] = {3,6,21,11,34,65,34,21,1};
+        // System.out.println(isArraySorted(randomArray, 0));
+        // System.out.println(firstOccurance(randomArray, 21, 0));
+        // System.out.println(lastOccuranceUnoptimized(randomArray, 21, randomArray.length-1));
+        System.out.println(lastOccurance(randomArray, 21, 1));
     }
 }
