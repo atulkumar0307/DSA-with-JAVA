@@ -93,16 +93,42 @@ public class Basics {
         return lastOccurance(arr, key, i-1);
     }
 
+    // Time complexity: O(n)
+    public static int powerOfN(int x, int n){
+        if(n == 0){
+            return 1;
+        }
+        return x * powerOfN(x, n-1);
+    }
+
+    // Till which level: log2n
+    public static int powerOfNOptimized(int x, int n){
+        if(n == 0){
+            return 1;
+        }
+        int halfPower = powerOfNOptimized(x, n/2);
+        int halfPowerSquare =  halfPower * halfPower;
+
+        //n is odd;
+        if(n % 2 != 0){
+            halfPowerSquare = x * halfPowerSquare;
+        }
+        return halfPowerSquare;
+    }
+
     public static void main(String[] args) {
         // printNumber(20);
         // printNumberIncOrder(20);
         // System.out.print(factorial(10));
         // System.out.println(sumOfNumber(100));
         // System.out.println(fibonacci(100));
-        int randomArray[] = {3,6,21,11,34,65,34,21,1};
+
+        // int randomArray[] = {3,6,21,11,34,65,34,21,1};
         // System.out.println(isArraySorted(randomArray, 0));
         // System.out.println(firstOccurance(randomArray, 21, 0));
         // System.out.println(lastOccuranceUnoptimized(randomArray, 21, randomArray.length-1));
-        System.out.println(lastOccurance(randomArray, 21, 1));
+        // System.out.println(lastOccurance(randomArray, 21, 1));
+        // System.out.println(powerOfN(2, 10));
+        // System.out.println(powerOfNOptimized(2, 10));
     }
 }
